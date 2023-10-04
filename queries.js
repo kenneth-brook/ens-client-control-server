@@ -16,6 +16,16 @@ const getClients = (request, response) => {
     })
 }
 
+const getClientsById = (request, response) => {
+    pool.query('SELECT * FROM clients WHERE id = $1', [id], (error, results) => {
+      if (error) {
+        throw error
+      }
+      response.status(200).json(results.rows)
+    })
+}
+
 module.exports = {
     getClients,
+    getClientsById,
   }

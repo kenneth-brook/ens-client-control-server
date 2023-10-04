@@ -16,6 +16,7 @@ app.get('/client-control-host/', (request, response) => {
 })
 
 app.get('/client-control-host/clients', db.getClients)
+app.get('/client-control-host/clients/:id', db.getClientsById)
 
 app.listen(port, () => {
     console.log(`App running on port ${port}.`)
